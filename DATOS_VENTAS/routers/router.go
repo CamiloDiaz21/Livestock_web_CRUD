@@ -8,7 +8,7 @@
 package routers
 
 import (
-	"github.com/Estebanrojas22/livestock/DATOS_VENTAS/controllers"
+	"github.com/sena_2824182/livestock/DATOS_VENTAS/controllers"
 
 	"github.com/astaxie/beego"
 )

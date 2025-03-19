@@ -1,7 +1,7 @@
 package main
 
 import (
-	_ "DATOS_VENTAS/routers"
+	_ "github.com/sena_2824182/livestock/DATOS_VENTAS/routers"
 
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
