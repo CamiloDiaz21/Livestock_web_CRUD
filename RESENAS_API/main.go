@@ -1,7 +1,7 @@
 package main
 
 import (
-	_ "github.com/sena_2824182/livestock/RESENAS_API/routers"
+	_ "github.com/sena_2824182/livestock_web_CRUD/RESENAS_API/routers"
 
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"

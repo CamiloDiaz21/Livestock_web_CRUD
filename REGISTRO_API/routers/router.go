@@ -8,7 +8,7 @@
 package routers
 
 import (
-	"github.com/sena_2824182/livestock/REGISTRO_API/controllers"
+	"github.com/sena_2824182/livestock_web_CRUD/REGISTRO_API/controllers"
 
 	"github.com/astaxie/beego"
 )

@@ -11,11 +11,11 @@ import (
 )
 
 type TipoGanado struct {
-	Id                int       `orm:"column(id);pk"`
+	Id                int       `orm:"column(id);pk;auto"`
 	Activo            bool      `orm:"column(activo)"`
 	NombreTipoGanado  string    `orm:"column(nombre_tipo_ganado)"`
-	FechaCreacion     time.Time `orm:"column(fecha_creacion);type(timestamp with time zone)"`
-	FechaModificacion time.Time `orm:"column(fecha_modificacion);type(timestamp with time zone)"`
+	FechaCreacion     time.Time `orm:"column(fecha_creacion);type(timestamp with time zone);auto_now_add"`
+	FechaModificacion time.Time `orm:"column(fecha_modificacion);type(timestamp with time zone);auto_now"`
 }
 
 func (t *TipoGanado) TableName() string {
@@ -30,6 +30,7 @@ func init() {
 // last inserted Id on success.
 func AddTipoGanado(m *TipoGanado) (id int64, err error) {
 	o := orm.NewOrm()
+	m.Activo = true
 	id, err = o.Insert(m)
 	return
 }

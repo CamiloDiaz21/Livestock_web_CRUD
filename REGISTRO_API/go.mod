@@ -1,4 +1,4 @@
-module github.com/sena_2824182/livestock/REGISTRO_API
+module github.com/sena_2824182/livestock_web_CRUD/REGISTRO_API
 
 go 1.23.1
 

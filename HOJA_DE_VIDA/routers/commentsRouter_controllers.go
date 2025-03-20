@@ -7,7 +7,7 @@ import (
 
 func init() {
 
-    beego.GlobalControllerRouter["github.com/sena_2824182/livestock/HOJA_DE_VIDA/controllers:DatosHojaVidaController"] = append(beego.GlobalControllerRouter["github.com/sena_2824182/livestock/HOJA_DE_VIDA/controllers:DatosHojaVidaController"],
+    beego.GlobalControllerRouter["github.com/sena_2824182/livestock_web_CRUD/HOJA_DE_VIDA/controllers:DatosHojaVidaController"] = append(beego.GlobalControllerRouter["github.com/sena_2824182/livestock_web_CRUD/HOJA_DE_VIDA/controllers:DatosHojaVidaController"],
         beego.ControllerComments{
             Method: "Post",
             Router: "/",
@@ -16,7 +16,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["github.com/sena_2824182/livestock/HOJA_DE_VIDA/controllers:DatosHojaVidaController"] = append(beego.GlobalControllerRouter["github.com/sena_2824182/livestock/HOJA_DE_VIDA/controllers:DatosHojaVidaController"],
+    beego.GlobalControllerRouter["github.com/sena_2824182/livestock_web_CRUD/HOJA_DE_VIDA/controllers:DatosHojaVidaController"] = append(beego.GlobalControllerRouter["github.com/sena_2824182/livestock_web_CRUD/HOJA_DE_VIDA/controllers:DatosHojaVidaController"],
         beego.ControllerComments{
             Method: "GetAll",
             Router: "/",
@@ -25,7 +25,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["github.com/sena_2824182/livestock/HOJA_DE_VIDA/controllers:DatosHojaVidaController"] = append(beego.GlobalControllerRouter["github.com/sena_2824182/livestock/HOJA_DE_VIDA/controllers:DatosHojaVidaController"],
+    beego.GlobalControllerRouter["github.com/sena_2824182/livestock_web_CRUD/HOJA_DE_VIDA/controllers:DatosHojaVidaController"] = append(beego.GlobalControllerRouter["github.com/sena_2824182/livestock_web_CRUD/HOJA_DE_VIDA/controllers:DatosHojaVidaController"],
         beego.ControllerComments{
             Method: "GetOne",
             Router: "/:id",
@@ -34,7 +34,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["github.com/sena_2824182/livestock/HOJA_DE_VIDA/controllers:DatosHojaVidaController"] = append(beego.GlobalControllerRouter["github.com/sena_2824182/livestock/HOJA_DE_VIDA/controllers:DatosHojaVidaController"],
+    beego.GlobalControllerRouter["github.com/sena_2824182/livestock_web_CRUD/HOJA_DE_VIDA/controllers:DatosHojaVidaController"] = append(beego.GlobalControllerRouter["github.com/sena_2824182/livestock_web_CRUD/HOJA_DE_VIDA/controllers:DatosHojaVidaController"],
         beego.ControllerComments{
             Method: "Put",
             Router: "/:id",
@@ -43,7 +43,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["github.com/sena_2824182/livestock/HOJA_DE_VIDA/controllers:DatosHojaVidaController"] = append(beego.GlobalControllerRouter["github.com/sena_2824182/livestock/HOJA_DE_VIDA/controllers:DatosHojaVidaController"],
+    beego.GlobalControllerRouter["github.com/sena_2824182/livestock_web_CRUD/HOJA_DE_VIDA/controllers:DatosHojaVidaController"] = append(beego.GlobalControllerRouter["github.com/sena_2824182/livestock_web_CRUD/HOJA_DE_VIDA/controllers:DatosHojaVidaController"],
         beego.ControllerComments{
             Method: "Delete",
             Router: "/:id",

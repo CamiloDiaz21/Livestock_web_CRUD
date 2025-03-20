@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/sena_2824182/livestock/HOJA_DE_VIDA/models"
+	"github.com/sena_2824182/livestock_web_CRUD/HOJA_DE_VIDA/models"
 
 	"github.com/astaxie/beego"
 )

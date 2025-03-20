@@ -11,14 +11,14 @@ import (
 )
 
 type HaciendaLote struct {
-	Id                int       `orm:"column(id);pk"`
+	Id                int       `orm:"column(id);pk;auto"`
 	DatosLugar        string    `orm:"column(datos_lugar)"`
 	DatosVendedor     string    `orm:"column(datos_vendedor)"`
 	UbicacionLugar    string    `orm:"column(ubicacion_lugar)"`
 	TamañoLugar       string    `orm:"column(tamaño_lugar)"`
 	Activo            bool      `orm:"column(activo)"`
-	FechaCreacion     time.Time `orm:"column(fecha_creacion);type(timestamp with time zone)"`
-	FechaModificacion time.Time `orm:"column(fecha_modificacion);type(timestamp with time zone)"`
+	FechaCreacion     time.Time `orm:"column(fecha_creacion);type(timestamp with time zone);auto_now_add"`
+	FechaModificacion time.Time `orm:"column(fecha_modificacion);type(timestamp with time zone);auto_now"`
 }
 
 func (t *HaciendaLote) TableName() string {
@@ -33,6 +33,7 @@ func init() {
 // last inserted Id on success.
 func AddHaciendaLote(m *HaciendaLote) (id int64, err error) {
 	o := orm.NewOrm()
+	m.Activo = true
 	id, err = o.Insert(m)
 	return
 }

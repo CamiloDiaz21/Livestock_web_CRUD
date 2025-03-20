@@ -11,14 +11,14 @@ import (
 )
 
 type DatosHojaVida struct {
-	Id                    int       `orm:"column(id);pk"`
+	Id                    int       `orm:"column(id);pk;auto"`
 	FkInformacionContacto string    `orm:"column(fk_informacion_contacto)"`
 	PerfilProfesional     string    `orm:"column(perfil_profesional)"`
 	Aptitudes             string    `orm:"column(aptitudes)"`
 	HistoriaLaboral       string    `orm:"column(historia_laboral)"`
 	Activo                bool      `orm:"column(activo)"`
-	FechaCreacion         time.Time `orm:"column(fecha_creacion);type(timestamp with time zone)"`
-	FechaModificacion     time.Time `orm:"column(fecha_modificacion);type(timestamp with time zone)"`
+	FechaCreacion         time.Time `orm:"column(fecha_creacion);type(timestamp with time zone);auto_now_add"`
+	FechaModificacion     time.Time `orm:"column(fecha_modificacion);type(timestamp with time zone);auto_now"`
 }
 
 func (t *DatosHojaVida) TableName() string {
@@ -33,6 +33,7 @@ func init() {
 // last inserted Id on success.
 func AddDatosHojaVida(m *DatosHojaVida) (id int64, err error) {
 	o := orm.NewOrm()
+	m.Activo = true
 	id, err = o.Insert(m)
 	return
 }
