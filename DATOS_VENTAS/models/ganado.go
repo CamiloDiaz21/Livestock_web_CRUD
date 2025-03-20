@@ -11,7 +11,7 @@ import (
 )
 
 type Ganado struct {
-	Id                int         `orm:"column(id_ganado);pk"`
+	Id                int         `orm:"column(id);pk"`
 	DatosGanado       string      `orm:"column(datos_ganado)"`
 	DatosVendedor     string      `orm:"column(datos_vendedor)"`
 	TipoGanado        *TipoGanado `orm:"column(tipo_ganado);rel(fk)"`

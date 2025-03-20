@@ -11,7 +11,7 @@ import (
 )
 
 type TipoVenta struct {
-	Id                int       `orm:"column(id_tipo_venta);pk"`
+	Id                int       `orm:"column(id);pk"`
 	NombreTipoVenta   string    `orm:"column(nombre_tipo_venta)"`
 	Activo            bool      `orm:"column(activo)"`
 	FechaCreacion     time.Time `orm:"column(fecha_creacion);type(timestamp with time zone)"`

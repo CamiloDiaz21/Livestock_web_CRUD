@@ -14,9 +14,8 @@ type TipoPublicacion struct {
 	Id                int       `orm:"column(id);pk;auto"`
 	NombrePublicacion string    `orm:"column(nombre_publicacion)"`
 	Activo            bool      `orm:"column(activo)"`
-	FCreacion         time.Time `orm:"column(f_creacion);type(timestamp with time zone);;auto_now_add"`
+	FCreacion         time.Time `orm:"column(f_creacion);type(timestamp with time zone);auto_now_add"`
 	FModificacion     time.Time `orm:"column(f_modificacion);type(timestamp with time zone);auto_now"`
-	
 }
 
 func (t *TipoPublicacion) TableName() string {
@@ -31,7 +30,7 @@ func init() {
 // last inserted Id on success.
 func AddTipoPublicacion(m *TipoPublicacion) (id int64, err error) {
 	o := orm.NewOrm()
-	m.Activo= true
+	m.Activo = true
 	id, err = o.Insert(m)
 	return
 }

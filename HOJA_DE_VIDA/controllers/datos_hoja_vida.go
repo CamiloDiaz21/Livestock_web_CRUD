@@ -3,9 +3,10 @@ package controllers
 import (
 	"encoding/json"
 	"errors"
-	"github.com/Estebanrojas22/livestock/HOJA_DE_VIDA/models"
 	"strconv"
 	"strings"
+
+	"github.com/sena_2824182/livestock/HOJA_DE_VIDA/models"
 
 	"github.com/astaxie/beego"
 )
@@ -36,7 +37,7 @@ func (c *DatosHojaVidaController) Post() {
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
 		if _, err := models.AddDatosHojaVida(&v); err == nil {
 			c.Ctx.Output.SetStatus(201)
-			c.Data["json"] = v
+			c.Data["json"] = map[string]interface{}{"Success": true, "Status": 201, "Message": "Creado correctamente", "Datos creados con id": v}
 		} else {
 			c.Data["json"] = err.Error()
 		}
@@ -60,7 +61,7 @@ func (c *DatosHojaVidaController) GetOne() {
 	if err != nil {
 		c.Data["json"] = err.Error()
 	} else {
-		c.Data["json"] = v
+		c.Data["json"] = map[string]interface{}{"Success": true, "Status": 200, "Message": "Consulta correctamente", "Consulta de id": v}
 	}
 	c.ServeJSON()
 }
@@ -123,7 +124,7 @@ func (c *DatosHojaVidaController) GetAll() {
 	if err != nil {
 		c.Data["json"] = err.Error()
 	} else {
-		c.Data["json"] = l
+		c.Data["json"] = map[string]interface{}{"Success": true, "Status": 200, "Message": "Consulta correctamente", "Consulta de id": l}
 	}
 	c.ServeJSON()
 }
@@ -142,7 +143,7 @@ func (c *DatosHojaVidaController) Put() {
 	v := models.DatosHojaVida{Id: id}
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
 		if err := models.UpdateDatosHojaVidaById(&v); err == nil {
-			c.Data["json"] = "OK"
+			c.Data["json"] = map[string]interface{}{"Success": true, "Status": 200, "Message": "Actualizacion correcta", "Actualizacion de id": v}
 		} else {
 			c.Data["json"] = err.Error()
 		}
@@ -163,7 +164,7 @@ func (c *DatosHojaVidaController) Delete() {
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
 	if err := models.DeleteDatosHojaVida(id); err == nil {
-		c.Data["json"] = "OK"
+		c.Data["json"] = map[string]interface{}{"Success": true, "Status": 200, "Message": "eliminado correctamente", "Dato eliminado con id": id}
 	} else {
 		c.Data["json"] = err.Error()
 	}

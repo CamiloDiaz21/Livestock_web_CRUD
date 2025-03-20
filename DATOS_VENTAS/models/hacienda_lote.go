@@ -11,7 +11,7 @@ import (
 )
 
 type HaciendaLote struct {
-	Id                int       `orm:"column(id_haciendas);pk"`
+	Id                int       `orm:"column(id);pk"`
 	DatosLugar        string    `orm:"column(datos_lugar)"`
 	DatosVendedor     string    `orm:"column(datos_vendedor)"`
 	UbicacionLugar    string    `orm:"column(ubicacion_lugar)"`

@@ -1,7 +1,7 @@
 package main
 
 import (
-	_ "github.com/Estebanrojas22/HOJA_DE_VIDA/routers"
+	_ "github.com/sena_2824182/livestock/HOJA_DE_VIDA/routers"
 
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
@@ -16,4 +16,3 @@ func main() {
 	}
 	beego.Run()
 }
-

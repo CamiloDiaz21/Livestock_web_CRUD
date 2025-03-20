@@ -37,7 +37,7 @@ func (c *HaciendaLoteController) Post() {
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
 		if _, err := models.AddHaciendaLote(&v); err == nil {
 			c.Ctx.Output.SetStatus(201)
-			c.Data["json"] = v
+			c.Data["json"] = map[string]interface{}{"Success": true, "Status": 201, "Message": "Creado correctamente", "Datos creados con id": v}
 		} else {
 			c.Data["json"] = err.Error()
 		}
@@ -61,7 +61,7 @@ func (c *HaciendaLoteController) GetOne() {
 	if err != nil {
 		c.Data["json"] = err.Error()
 	} else {
-		c.Data["json"] = v
+		c.Data["json"] = map[string]interface{}{"Success": true, "Status": 200, "Message": "Consulta correctamente", "Consulta de id": v}
 	}
 	c.ServeJSON()
 }
@@ -124,7 +124,7 @@ func (c *HaciendaLoteController) GetAll() {
 	if err != nil {
 		c.Data["json"] = err.Error()
 	} else {
-		c.Data["json"] = l
+		c.Data["json"] = map[string]interface{}{"Success": true, "Status": 200, "Message": "Consulta correctamente", "Consulta de id": l}
 	}
 	c.ServeJSON()
 }
@@ -143,7 +143,7 @@ func (c *HaciendaLoteController) Put() {
 	v := models.HaciendaLote{Id: id}
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
 		if err := models.UpdateHaciendaLoteById(&v); err == nil {
-			c.Data["json"] = "OK"
+			c.Data["json"] = map[string]interface{}{"Success": true, "Status": 200, "Message": "Actualizacion correcta", "Actualizacion de id": v}
 		} else {
 			c.Data["json"] = err.Error()
 		}
@@ -164,7 +164,7 @@ func (c *HaciendaLoteController) Delete() {
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
 	if err := models.DeleteHaciendaLote(id); err == nil {
-		c.Data["json"] = "OK"
+		c.Data["json"] = map[string]interface{}{"Success": true, "Status": 200, "Message": "eliminado correctamente", "Dato eliminado con id": id}
 	} else {
 		c.Data["json"] = err.Error()
 	}

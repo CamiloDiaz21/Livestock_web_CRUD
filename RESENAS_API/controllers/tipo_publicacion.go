@@ -3,9 +3,10 @@ package controllers
 import (
 	"encoding/json"
 	"errors"
-	"github.com/Estebanrojas22/LIVE.STOCKWEB/RESENAS_API/models"
 	"strconv"
 	"strings"
+
+	"github.com/sena_2824182/livestock/RESENAS_API/models"
 
 	"github.com/astaxie/beego"
 )

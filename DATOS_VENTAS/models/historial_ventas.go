@@ -11,13 +11,13 @@ import (
 )
 
 type HistorialVentas struct {
-	Id                int        `orm:"column(id_historial_venta);pk"`
+	Id                int        `orm:"column(id);pk;auto"`
 	IdVentas          int        `orm:"column(id_ventas)"`
 	IdUsuarioVendedor int        `orm:"column(id_usuario_vendedor)"`
 	TipoVenta         *TipoVenta `orm:"column(tipo_venta);rel(fk)"`
 	Activo            bool       `orm:"column(activo)"`
-	FechaCreacion     time.Time  `orm:"column(fecha_creacion);type(timestamp with time zone)"`
-	FechaModificacion time.Time  `orm:"column(fecha_modificacion);type(timestamp with time zone)"`
+	FechaCreacion     time.Time  `orm:"column(fecha_creacion);type(timestamp with time zone);auto_now_add"`
+	FechaModificacion time.Time  `orm:"column(fecha_modificacion);type(timestamp with time zone);auto_now"`
 }
 
 func (t *HistorialVentas) TableName() string {
@@ -32,6 +32,7 @@ func init() {
 // last inserted Id on success.
 func AddHistorialVentas(m *HistorialVentas) (id int64, err error) {
 	o := orm.NewOrm()
+	m.Activo = true
 	id, err = o.Insert(m)
 	return
 }

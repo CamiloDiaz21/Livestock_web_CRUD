@@ -1,4 +1,4 @@
-module github.com/Estebanrojas22/LIVE.STOCKWEB/RESENAS_API
+module github.com/sena_2824182/livestock/RESENAS_API
 
 go 1.23.1
 

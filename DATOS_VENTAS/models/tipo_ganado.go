@@ -11,7 +11,7 @@ import (
 )
 
 type TipoGanado struct {
-	Id                int       `orm:"column(id_tipo_ganado);pk"`
+	Id                int       `orm:"column(id);pk"`
 	Activo            bool      `orm:"column(activo)"`
 	NombreTipoGanado  string    `orm:"column(nombre_tipo_ganado)"`
 	FechaCreacion     time.Time `orm:"column(fecha_creacion);type(timestamp with time zone)"`
