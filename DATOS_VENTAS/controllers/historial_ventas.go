@@ -61,7 +61,7 @@ func (c *HistorialVentasController) GetOne() {
 	if err != nil {
 		c.Data["json"] = err.Error()
 	} else {
-		c.Data["json"] = v
+		c.Data["json"] = map[string]interface{},
 	}
 	c.ServeJSON()
 }
