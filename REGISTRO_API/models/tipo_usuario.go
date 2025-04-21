@@ -11,7 +11,7 @@ import (
 )
 
 type TipoUsuario struct {
-	Id            int       `orm:"column(id);pk"`
+	Id            int       `orm:"column(id);pk;auto"`
 	Nombre        string    `orm:"column(nombre)"`
 	Activo        bool      `orm:"column(activo)"`
 	FCreacion     time.Time `orm:"column(f_creacion);type(timestamp with time zone);auto_now_add"`
