@@ -11,13 +11,14 @@ import (
 )
 
 type Comentario struct {
-	Id                           int              `orm:"column(id);pk;auto"`
-	IdUsuario                    int              `orm:"column(id_usuario)"`
-	Comentarios                  string           `orm:"column(comentarios)"`
-	Activo                       bool             `orm:"column(Activo)"`
-	FCreacion                    time.Time        `orm:"column(f_creacion);type(timestamp with time zone);auto_now_add"`
-	FModificacion                time.Time        `orm:"column(f_modificacion);type(timestamp with time zone);auto_now"`
-	IdPublicacionTipoPublicacion *TipoPublicacion `orm:"column(id_publicacion);rel(fk)"`
+	Id                            int              `orm:"column(id);pk;auto"`
+	IdUsuario                     int              `orm:"column(id_usuario)"`
+	Comentarios                   string           `orm:"column(comentarios)"`
+	Activo                        bool             `orm:"column(Activo)"`
+	FCreacion                     time.Time        `orm:"column(f_creacion);type(timestamp with time zone);auto_now_add"`
+	FModificacion                 time.Time        `orm:"column(f_modificacion);type(timestamp with time zone);auto_now"`
+	IdTPublicacionTipoPublicacion *TipoPublicacion `orm:"column(id_tpublicacion);rel(fk)"`
+	IdPublicacion                 int              `orm:"column(id_publicacion)"`
 }
 
 func (t *Comentario) TableName() string {
@@ -53,7 +54,7 @@ func GetComentarioById(id int) (v *Comentario, err error) {
 func GetAllComentario(query map[string]string, fields []string, sortby []string, order []string,
 	offset int64, limit int64) (ml []interface{}, err error) {
 	o := orm.NewOrm()
-	qs := o.QueryTable(new(Comentario))
+	qs := o.QueryTable(new(Comentario)).RelatedSel()
 	// query k=v
 	for k, v := range query {
 		// rewrite dot-notation to Object__Attribute

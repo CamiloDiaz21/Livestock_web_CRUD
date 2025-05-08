@@ -16,7 +16,7 @@ type RegistroUsuario struct {
 	Apellido          string         `orm:"column(apellido)"`
 	FNacimiento       string         `orm:"column(f_nacimiento);null"`
 	IdTipoDocumento   *TipoDocumento `orm:"column(id_tipo_documento);rel(fk)"`
-	NDocumento        float64        `orm:"column(n_documento)"`
+	NDocumento        string         `orm:"column(n_documento)"`
 	CorreoElectronico string         `orm:"column(correo_electronico)"`
 	Celular           string         `orm:"column(celular)"`
 	IdTipoUsuario     *TipoUsuario   `orm:"column(id_tipo_usuario);rel(fk)"`
