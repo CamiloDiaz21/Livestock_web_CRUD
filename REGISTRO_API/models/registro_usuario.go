@@ -16,7 +16,7 @@ type RegistroUsuario struct {
 	Apellido          string         `orm:"column(apellido)"`
 	FNacimiento       string         `orm:"column(f_nacimiento);null"`
 	IdTipoDocumento   *TipoDocumento `orm:"column(id_tipo_documento);rel(fk)"`
-	NDocumento        string        `orm:"column(n_documento)"`
+	NDocumento        string         `orm:"column(n_documento)"`
 	CorreoElectronico string         `orm:"column(correo_electronico)"`
 	Celular           string         `orm:"column(celular)"`
 	IdTipoUsuario     *TipoUsuario   `orm:"column(id_tipo_usuario);rel(fk)"`
@@ -59,7 +59,7 @@ func GetRegistroUsuarioById(id int) (v *RegistroUsuario, err error) {
 func GetAllRegistroUsuario(query map[string]string, fields []string, sortby []string, order []string,
 	offset int64, limit int64) (ml []interface{}, err error) {
 	o := orm.NewOrm()
-	qs := o.QueryTable(new(RegistroUsuario))
+	qs := o.QueryTable(new(RegistroUsuario)).RelatedSel()
 	// query k=v
 	for k, v := range query {
 		// rewrite dot-notation to Object__Attribute
