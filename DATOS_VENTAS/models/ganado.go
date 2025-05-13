@@ -14,12 +14,13 @@ type Ganado struct {
 	Id                int         `orm:"column(id);pk;auto"`
 	DatosGanado       string      `orm:"column(datos_ganado)"`
 	DatosVendedor     string      `orm:"column(datos_vendedor)"`
-	TipoGanado        *TipoGanado `orm:"column(tipo_ganado);rel(fk)"`
-	CategoriaGanado   string      `orm:"column(categoria_Ganado)"`
+	CategoriaGanado   string      `orm:"column(categoria_ganado)"`
 	UbicacionGanando  string      `orm:"column(ubicacion_ganando)"`
+	descrip_publicacion string `orm:"column(descrip_publicacion)"`
 	Activo            bool        `orm:"column(activo)"`
-	FechaCreacion     time.Time   `orm:"column(fecha_creacion);type(timestamp with time zone);auto_now_add"`
-	FechaModificacion time.Time   `orm:"column(fecha_modificacion);type(timestamp with time zone);auto_now"`
+	FechaCreacion     time.Time   `orm:"column(f_creacion);type(timestamp with time zone);auto_now_add"`
+	FechaModificacion time.Time   `orm:"column(f_modificacion);type(timestamp with time zone);auto_now"`
+	IdTipoGanado        *TipoGanado `orm:"column(id_tipo_ganado);rel(fk)"`
 }
 
 func (t *Ganado) TableName() string {

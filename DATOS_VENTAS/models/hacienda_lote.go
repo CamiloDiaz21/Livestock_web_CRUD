@@ -16,6 +16,7 @@ type HaciendaLote struct {
 	DatosVendedor     string    `orm:"column(datos_vendedor)"`
 	UbicacionLugar    string    `orm:"column(ubicacion_lugar)"`
 	TamañoLugar       string    `orm:"column(tamaño_lugar)"`
+	descrip_publicacion string `orm:"column(descrip_publicacion)"`
 	Activo            bool      `orm:"column(activo)"`
 	FechaCreacion     time.Time `orm:"column(fecha_creacion);type(timestamp with time zone);auto_now_add"`
 	FechaModificacion time.Time `orm:"column(fecha_modificacion);type(timestamp with time zone);auto_now"`

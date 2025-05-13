@@ -14,8 +14,8 @@ type TipoGanado struct {
 	Id                int       `orm:"column(id);pk;auto"`
 	Activo            bool      `orm:"column(activo)"`
 	NombreTipoGanado  string    `orm:"column(nombre_tipo_ganado)"`
-	FechaCreacion     time.Time `orm:"column(fecha_creacion);type(timestamp with time zone);auto_now_add"`
-	FechaModificacion time.Time `orm:"column(fecha_modificacion);type(timestamp with time zone);auto_now"`
+	FechaCreacion     time.Time `orm:"column(f_creacion);type(timestamp with time zone);auto_now_add"`
+	FechaModificacion time.Time `orm:"column(f_modificacion);type(timestamp with time zone);auto_now"`
 }
 
 func (t *TipoGanado) TableName() string {
