@@ -8,25 +8,13 @@
 package routers
 
 import (
-	"github.com/sena_2824182/livestock_web_CRUD/DATOS_VENTAS/controllers"
+	"github.com/sena_2824182/Livestock_web_CRUD/DATOS_VENTAS/controllers"
 
 	"github.com/astaxie/beego"
 )
 
 func init() {
 	ns := beego.NewNamespace("/v1",
-
-		beego.NSNamespace("/tipo_ganado",
-			beego.NSInclude(
-				&controllers.TipoGanadoController{},
-			),
-		),
-
-		beego.NSNamespace("/ganado",
-			beego.NSInclude(
-				&controllers.GanadoController{},
-			),
-		),
 
 		beego.NSNamespace("/tipo_venta",
 			beego.NSInclude(
@@ -40,9 +28,9 @@ func init() {
 			),
 		),
 
-		beego.NSNamespace("/hacienda_lote",
+		beego.NSNamespace("/publicaciones",
 			beego.NSInclude(
-				&controllers.HaciendaLoteController{},
+				&controllers.PublicacionesController{},
 			),
 		),
 	)

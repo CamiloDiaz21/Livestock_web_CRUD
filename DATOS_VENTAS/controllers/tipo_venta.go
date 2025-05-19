@@ -3,10 +3,9 @@ package controllers
 import (
 	"encoding/json"
 	"errors"
+	"github.com/sena_2824182/Livestock_web_CRUD/DATOS_VENTAS/models"
 	"strconv"
 	"strings"
-
-	"github.com/sena_2824182/livestock_web_CRUD/DATOS_VENTAS/models"
 
 	"github.com/astaxie/beego"
 )

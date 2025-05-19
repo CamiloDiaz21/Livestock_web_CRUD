@@ -7,7 +7,7 @@ import (
 
 func init() {
 
-    beego.GlobalControllerRouter["github.com/sena_2824182/livestock_web_CRUD/DATOS_VENTAS/controllers:GanadoController"] = append(beego.GlobalControllerRouter["github.com/sena_2824182/livestock_web_CRUD/DATOS_VENTAS/controllers:GanadoController"],
+    beego.GlobalControllerRouter["github.com/sena_2824182/Livestock_web_CRUD/DATOS_VENTAS/controllers:HistorialVentasController"] = append(beego.GlobalControllerRouter["github.com/sena_2824182/Livestock_web_CRUD/DATOS_VENTAS/controllers:HistorialVentasController"],
         beego.ControllerComments{
             Method: "Post",
             Router: "/",
@@ -16,7 +16,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["github.com/sena_2824182/livestock_web_CRUD/DATOS_VENTAS/controllers:GanadoController"] = append(beego.GlobalControllerRouter["github.com/sena_2824182/livestock_web_CRUD/DATOS_VENTAS/controllers:GanadoController"],
+    beego.GlobalControllerRouter["github.com/sena_2824182/Livestock_web_CRUD/DATOS_VENTAS/controllers:HistorialVentasController"] = append(beego.GlobalControllerRouter["github.com/sena_2824182/Livestock_web_CRUD/DATOS_VENTAS/controllers:HistorialVentasController"],
         beego.ControllerComments{
             Method: "GetAll",
             Router: "/",
@@ -25,7 +25,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["github.com/sena_2824182/livestock_web_CRUD/DATOS_VENTAS/controllers:GanadoController"] = append(beego.GlobalControllerRouter["github.com/sena_2824182/livestock_web_CRUD/DATOS_VENTAS/controllers:GanadoController"],
+    beego.GlobalControllerRouter["github.com/sena_2824182/Livestock_web_CRUD/DATOS_VENTAS/controllers:HistorialVentasController"] = append(beego.GlobalControllerRouter["github.com/sena_2824182/Livestock_web_CRUD/DATOS_VENTAS/controllers:HistorialVentasController"],
         beego.ControllerComments{
             Method: "GetOne",
             Router: "/:id",
@@ -34,7 +34,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["github.com/sena_2824182/livestock_web_CRUD/DATOS_VENTAS/controllers:GanadoController"] = append(beego.GlobalControllerRouter["github.com/sena_2824182/livestock_web_CRUD/DATOS_VENTAS/controllers:GanadoController"],
+    beego.GlobalControllerRouter["github.com/sena_2824182/Livestock_web_CRUD/DATOS_VENTAS/controllers:HistorialVentasController"] = append(beego.GlobalControllerRouter["github.com/sena_2824182/Livestock_web_CRUD/DATOS_VENTAS/controllers:HistorialVentasController"],
         beego.ControllerComments{
             Method: "Put",
             Router: "/:id",
@@ -43,7 +43,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["github.com/sena_2824182/livestock_web_CRUD/DATOS_VENTAS/controllers:GanadoController"] = append(beego.GlobalControllerRouter["github.com/sena_2824182/livestock_web_CRUD/DATOS_VENTAS/controllers:GanadoController"],
+    beego.GlobalControllerRouter["github.com/sena_2824182/Livestock_web_CRUD/DATOS_VENTAS/controllers:HistorialVentasController"] = append(beego.GlobalControllerRouter["github.com/sena_2824182/Livestock_web_CRUD/DATOS_VENTAS/controllers:HistorialVentasController"],
         beego.ControllerComments{
             Method: "Delete",
             Router: "/:id",
@@ -52,7 +52,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["github.com/sena_2824182/livestock_web_CRUD/DATOS_VENTAS/controllers:HaciendaLoteController"] = append(beego.GlobalControllerRouter["github.com/sena_2824182/livestock_web_CRUD/DATOS_VENTAS/controllers:HaciendaLoteController"],
+    beego.GlobalControllerRouter["github.com/sena_2824182/Livestock_web_CRUD/DATOS_VENTAS/controllers:PublicacionesController"] = append(beego.GlobalControllerRouter["github.com/sena_2824182/Livestock_web_CRUD/DATOS_VENTAS/controllers:PublicacionesController"],
         beego.ControllerComments{
             Method: "Post",
             Router: "/",
@@ -61,7 +61,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["github.com/sena_2824182/livestock_web_CRUD/DATOS_VENTAS/controllers:HaciendaLoteController"] = append(beego.GlobalControllerRouter["github.com/sena_2824182/livestock_web_CRUD/DATOS_VENTAS/controllers:HaciendaLoteController"],
+    beego.GlobalControllerRouter["github.com/sena_2824182/Livestock_web_CRUD/DATOS_VENTAS/controllers:PublicacionesController"] = append(beego.GlobalControllerRouter["github.com/sena_2824182/Livestock_web_CRUD/DATOS_VENTAS/controllers:PublicacionesController"],
         beego.ControllerComments{
             Method: "GetAll",
             Router: "/",
@@ -70,7 +70,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["github.com/sena_2824182/livestock_web_CRUD/DATOS_VENTAS/controllers:HaciendaLoteController"] = append(beego.GlobalControllerRouter["github.com/sena_2824182/livestock_web_CRUD/DATOS_VENTAS/controllers:HaciendaLoteController"],
+    beego.GlobalControllerRouter["github.com/sena_2824182/Livestock_web_CRUD/DATOS_VENTAS/controllers:PublicacionesController"] = append(beego.GlobalControllerRouter["github.com/sena_2824182/Livestock_web_CRUD/DATOS_VENTAS/controllers:PublicacionesController"],
         beego.ControllerComments{
             Method: "GetOne",
             Router: "/:id",
@@ -79,7 +79,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["github.com/sena_2824182/livestock_web_CRUD/DATOS_VENTAS/controllers:HaciendaLoteController"] = append(beego.GlobalControllerRouter["github.com/sena_2824182/livestock_web_CRUD/DATOS_VENTAS/controllers:HaciendaLoteController"],
+    beego.GlobalControllerRouter["github.com/sena_2824182/Livestock_web_CRUD/DATOS_VENTAS/controllers:PublicacionesController"] = append(beego.GlobalControllerRouter["github.com/sena_2824182/Livestock_web_CRUD/DATOS_VENTAS/controllers:PublicacionesController"],
         beego.ControllerComments{
             Method: "Put",
             Router: "/:id",
@@ -88,7 +88,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["github.com/sena_2824182/livestock_web_CRUD/DATOS_VENTAS/controllers:HaciendaLoteController"] = append(beego.GlobalControllerRouter["github.com/sena_2824182/livestock_web_CRUD/DATOS_VENTAS/controllers:HaciendaLoteController"],
+    beego.GlobalControllerRouter["github.com/sena_2824182/Livestock_web_CRUD/DATOS_VENTAS/controllers:PublicacionesController"] = append(beego.GlobalControllerRouter["github.com/sena_2824182/Livestock_web_CRUD/DATOS_VENTAS/controllers:PublicacionesController"],
         beego.ControllerComments{
             Method: "Delete",
             Router: "/:id",
@@ -97,7 +97,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["github.com/sena_2824182/livestock_web_CRUD/DATOS_VENTAS/controllers:HistorialVentasController"] = append(beego.GlobalControllerRouter["github.com/sena_2824182/livestock_web_CRUD/DATOS_VENTAS/controllers:HistorialVentasController"],
+    beego.GlobalControllerRouter["github.com/sena_2824182/Livestock_web_CRUD/DATOS_VENTAS/controllers:TipoVentaController"] = append(beego.GlobalControllerRouter["github.com/sena_2824182/Livestock_web_CRUD/DATOS_VENTAS/controllers:TipoVentaController"],
         beego.ControllerComments{
             Method: "Post",
             Router: "/",
@@ -106,7 +106,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["github.com/sena_2824182/livestock_web_CRUD/DATOS_VENTAS/controllers:HistorialVentasController"] = append(beego.GlobalControllerRouter["github.com/sena_2824182/livestock_web_CRUD/DATOS_VENTAS/controllers:HistorialVentasController"],
+    beego.GlobalControllerRouter["github.com/sena_2824182/Livestock_web_CRUD/DATOS_VENTAS/controllers:TipoVentaController"] = append(beego.GlobalControllerRouter["github.com/sena_2824182/Livestock_web_CRUD/DATOS_VENTAS/controllers:TipoVentaController"],
         beego.ControllerComments{
             Method: "GetAll",
             Router: "/",
@@ -115,7 +115,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["github.com/sena_2824182/livestock_web_CRUD/DATOS_VENTAS/controllers:HistorialVentasController"] = append(beego.GlobalControllerRouter["github.com/sena_2824182/livestock_web_CRUD/DATOS_VENTAS/controllers:HistorialVentasController"],
+    beego.GlobalControllerRouter["github.com/sena_2824182/Livestock_web_CRUD/DATOS_VENTAS/controllers:TipoVentaController"] = append(beego.GlobalControllerRouter["github.com/sena_2824182/Livestock_web_CRUD/DATOS_VENTAS/controllers:TipoVentaController"],
         beego.ControllerComments{
             Method: "GetOne",
             Router: "/:id",
@@ -124,7 +124,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["github.com/sena_2824182/livestock_web_CRUD/DATOS_VENTAS/controllers:HistorialVentasController"] = append(beego.GlobalControllerRouter["github.com/sena_2824182/livestock_web_CRUD/DATOS_VENTAS/controllers:HistorialVentasController"],
+    beego.GlobalControllerRouter["github.com/sena_2824182/Livestock_web_CRUD/DATOS_VENTAS/controllers:TipoVentaController"] = append(beego.GlobalControllerRouter["github.com/sena_2824182/Livestock_web_CRUD/DATOS_VENTAS/controllers:TipoVentaController"],
         beego.ControllerComments{
             Method: "Put",
             Router: "/:id",
@@ -133,97 +133,7 @@ func init() {
             Filters: nil,
             Params: nil})
 
-    beego.GlobalControllerRouter["github.com/sena_2824182/livestock_web_CRUD/DATOS_VENTAS/controllers:HistorialVentasController"] = append(beego.GlobalControllerRouter["github.com/sena_2824182/livestock_web_CRUD/DATOS_VENTAS/controllers:HistorialVentasController"],
-        beego.ControllerComments{
-            Method: "Delete",
-            Router: "/:id",
-            AllowHTTPMethods: []string{"delete"},
-            MethodParams: param.Make(),
-            Filters: nil,
-            Params: nil})
-
-    beego.GlobalControllerRouter["github.com/sena_2824182/livestock_web_CRUD/DATOS_VENTAS/controllers:TipoGanadoController"] = append(beego.GlobalControllerRouter["github.com/sena_2824182/livestock_web_CRUD/DATOS_VENTAS/controllers:TipoGanadoController"],
-        beego.ControllerComments{
-            Method: "Post",
-            Router: "/",
-            AllowHTTPMethods: []string{"post"},
-            MethodParams: param.Make(),
-            Filters: nil,
-            Params: nil})
-
-    beego.GlobalControllerRouter["github.com/sena_2824182/livestock_web_CRUD/DATOS_VENTAS/controllers:TipoGanadoController"] = append(beego.GlobalControllerRouter["github.com/sena_2824182/livestock_web_CRUD/DATOS_VENTAS/controllers:TipoGanadoController"],
-        beego.ControllerComments{
-            Method: "GetAll",
-            Router: "/",
-            AllowHTTPMethods: []string{"get"},
-            MethodParams: param.Make(),
-            Filters: nil,
-            Params: nil})
-
-    beego.GlobalControllerRouter["github.com/sena_2824182/livestock_web_CRUD/DATOS_VENTAS/controllers:TipoGanadoController"] = append(beego.GlobalControllerRouter["github.com/sena_2824182/livestock_web_CRUD/DATOS_VENTAS/controllers:TipoGanadoController"],
-        beego.ControllerComments{
-            Method: "GetOne",
-            Router: "/:id",
-            AllowHTTPMethods: []string{"get"},
-            MethodParams: param.Make(),
-            Filters: nil,
-            Params: nil})
-
-    beego.GlobalControllerRouter["github.com/sena_2824182/livestock_web_CRUD/DATOS_VENTAS/controllers:TipoGanadoController"] = append(beego.GlobalControllerRouter["github.com/sena_2824182/livestock_web_CRUD/DATOS_VENTAS/controllers:TipoGanadoController"],
-        beego.ControllerComments{
-            Method: "Put",
-            Router: "/:id",
-            AllowHTTPMethods: []string{"put"},
-            MethodParams: param.Make(),
-            Filters: nil,
-            Params: nil})
-
-    beego.GlobalControllerRouter["github.com/sena_2824182/livestock_web_CRUD/DATOS_VENTAS/controllers:TipoGanadoController"] = append(beego.GlobalControllerRouter["github.com/sena_2824182/livestock_web_CRUD/DATOS_VENTAS/controllers:TipoGanadoController"],
-        beego.ControllerComments{
-            Method: "Delete",
-            Router: "/:id",
-            AllowHTTPMethods: []string{"delete"},
-            MethodParams: param.Make(),
-            Filters: nil,
-            Params: nil})
-
-    beego.GlobalControllerRouter["github.com/sena_2824182/livestock_web_CRUD/DATOS_VENTAS/controllers:TipoVentaController"] = append(beego.GlobalControllerRouter["github.com/sena_2824182/livestock_web_CRUD/DATOS_VENTAS/controllers:TipoVentaController"],
-        beego.ControllerComments{
-            Method: "Post",
-            Router: "/",
-            AllowHTTPMethods: []string{"post"},
-            MethodParams: param.Make(),
-            Filters: nil,
-            Params: nil})
-
-    beego.GlobalControllerRouter["github.com/sena_2824182/livestock_web_CRUD/DATOS_VENTAS/controllers:TipoVentaController"] = append(beego.GlobalControllerRouter["github.com/sena_2824182/livestock_web_CRUD/DATOS_VENTAS/controllers:TipoVentaController"],
-        beego.ControllerComments{
-            Method: "GetAll",
-            Router: "/",
-            AllowHTTPMethods: []string{"get"},
-            MethodParams: param.Make(),
-            Filters: nil,
-            Params: nil})
-
-    beego.GlobalControllerRouter["github.com/sena_2824182/livestock_web_CRUD/DATOS_VENTAS/controllers:TipoVentaController"] = append(beego.GlobalControllerRouter["github.com/sena_2824182/livestock_web_CRUD/DATOS_VENTAS/controllers:TipoVentaController"],
-        beego.ControllerComments{
-            Method: "GetOne",
-            Router: "/:id",
-            AllowHTTPMethods: []string{"get"},
-            MethodParams: param.Make(),
-            Filters: nil,
-            Params: nil})
-
-    beego.GlobalControllerRouter["github.com/sena_2824182/livestock_web_CRUD/DATOS_VENTAS/controllers:TipoVentaController"] = append(beego.GlobalControllerRouter["github.com/sena_2824182/livestock_web_CRUD/DATOS_VENTAS/controllers:TipoVentaController"],
-        beego.ControllerComments{
-            Method: "Put",
-            Router: "/:id",
-            AllowHTTPMethods: []string{"put"},
-            MethodParams: param.Make(),
-            Filters: nil,
-            Params: nil})
-
-    beego.GlobalControllerRouter["github.com/sena_2824182/livestock_web_CRUD/DATOS_VENTAS/controllers:TipoVentaController"] = append(beego.GlobalControllerRouter["github.com/sena_2824182/livestock_web_CRUD/DATOS_VENTAS/controllers:TipoVentaController"],
+    beego.GlobalControllerRouter["github.com/sena_2824182/Livestock_web_CRUD/DATOS_VENTAS/controllers:TipoVentaController"] = append(beego.GlobalControllerRouter["github.com/sena_2824182/Livestock_web_CRUD/DATOS_VENTAS/controllers:TipoVentaController"],
         beego.ControllerComments{
             Method: "Delete",
             Router: "/:id",

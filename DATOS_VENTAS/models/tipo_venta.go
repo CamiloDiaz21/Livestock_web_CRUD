@@ -15,7 +15,7 @@ type TipoVenta struct {
 	NombreTipoVenta   string    `orm:"column(nombre_tipo_venta)"`
 	Activo            bool      `orm:"column(activo)"`
 	FechaCreacion     time.Time `orm:"column(fecha_creacion);type(timestamp with time zone);auto_now_add"`
-	FechaModificacion time.Time `orm:"column(fecha_modificacion);type(timestamp with time zone)auto_now"`
+	FechaModificacion time.Time `orm:"column(fecha_modificacion);type(timestamp with time zone);auto_now"`
 }
 
 func (t *TipoVenta) TableName() string {
@@ -51,7 +51,7 @@ func GetTipoVentaById(id int) (v *TipoVenta, err error) {
 func GetAllTipoVenta(query map[string]string, fields []string, sortby []string, order []string,
 	offset int64, limit int64) (ml []interface{}, err error) {
 	o := orm.NewOrm()
-	qs := o.QueryTable(new(TipoVenta))
+	qs := o.QueryTable(new(TipoVenta)).RelatedSel()
 	// query k=v
 	for k, v := range query {
 		// rewrite dot-notation to Object__Attribute
