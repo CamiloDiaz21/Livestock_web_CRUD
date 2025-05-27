@@ -12,16 +12,17 @@ import (
 
 type Publicaciones struct {
 	Id            int       `orm:"column(id);pk;auto"`
+	IdUsuarioVendedor     int       `orm:"column(id_usuario_vendedor);null"`
 	Descripcion   string    `orm:"column(descripcion)"`
 	DatosVendedor string    `orm:"column(datos_vendedor)"`
 	Ubicacion     string    `orm:"column(ubicacion)"`
 	Precio        float64    `orm:"column(precio)"`
 	RazaGanado    string    `orm:"column(raza_ganado);null"`
-	TPublicacion  int       `orm:"column(t_publicacion)"`
+	IdTipoVenta  *TipoVenta `orm:"column(id_tipo_venta);rel(fk)"`
 	Activo        bool      `orm:"column(activo)"`
 	FCreacion     time.Time `orm:"column(f_creacion);type(timestamp with time zone);auto_now_add"`
 	FModificacion time.Time `orm:"column(f_modificacion);type(timestamp with time zone);auto_now"`
-	imagenes      string    `orm:"column(imagenes);type(text)"`
+	Imagenes      string    `orm:"column(imagenes);type(text)"`
 }
 
 func (t *Publicaciones) TableName() string {

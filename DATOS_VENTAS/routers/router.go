@@ -21,13 +21,6 @@ func init() {
 				&controllers.TipoVentaController{},
 			),
 		),
-
-		beego.NSNamespace("/historial_ventas",
-			beego.NSInclude(
-				&controllers.HistorialVentasController{},
-			),
-		),
-
 		beego.NSNamespace("/publicaciones",
 			beego.NSInclude(
 				&controllers.PublicacionesController{},
