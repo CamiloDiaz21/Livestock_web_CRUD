@@ -20,7 +20,7 @@ type RegistroUsuario struct {
 	CorreoElectronico string         `orm:"column(correo_electronico)"`
 	Celular           string         `orm:"column(celular)"`
 	IdTipoUsuario     *TipoUsuario   `orm:"column(id_tipo_usuario);rel(fk)"`
-	Contraseña        *Credenciales  `orm:"column(contraseña);rel(fk)"`
+	Contrasena        *Credenciales  `orm:"column(contrasena);rel(fk)"`
 	Activo            bool           `orm:"column(activo)"`
 	FCreacion         time.Time      `orm:"column(f_creacion);type(timestamp with time zone);auto_now_add"`
 	FModificacion     time.Time      `orm:"column(f_modificacion);type(timestamp with time zone);auto_now"`

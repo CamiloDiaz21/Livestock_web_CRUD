@@ -12,7 +12,7 @@ import (
 
 type Credenciales struct {
 	Id                int       `orm:"column(id);pk;auto"`
-	Contraseña        string    `orm:"column(contraseña)"`
+	Contrasena        string    `orm:"column(contrasena)"`
 	Activo            bool      `orm:"column(activo)"`
 	FechaCreacion     time.Time `orm:"column(fecha_creacion);type(timestamp with time zone);auto_now_add"`
 	FechaModificacion time.Time `orm:"column(fecha_modificacion);type(timestamp with time zone);auto_now"`
