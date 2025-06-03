@@ -33,16 +33,38 @@ func (c *PublicacionesController) URLMapping() {
 // @router / [post]
 func (c *PublicacionesController) Post() {
 	var v models.Publicaciones
-	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
-		if _, err := models.AddPublicaciones(&v); err == nil {
-			c.Ctx.Output.SetStatus(201)
-			c.Data["json"] = map[string]interface{}{"Success": true, "Status": 201, "Message": "Creado correctamente", "Datos creados con id": v}
-		} else {
-			c.Data["json"] = err.Error()
+
+	// Parsear el JSON recibido desde el frontend
+	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err != nil {
+		c.Data["json"] = err.Error()
+		c.ServeJSON()
+		return
+	}
+
+	// Convertir el array de imágenes (base64) a JSON string para guardar en la BD
+	imagenesJson, err := json.Marshal(v.Imagenes)
+	if err != nil {
+		c.Data["json"] = "Error al procesar imágenes"
+		c.ServeJSON()
+		return
+	}
+
+	// Guardamos el JSON string en el campo de base de datos
+	v.ImagenesDB = string(imagenesJson)
+
+	// Guardar en la base de datos
+	if _, err := models.AddPublicaciones(&v); err == nil {
+		c.Ctx.Output.SetStatus(201)
+		c.Data["json"] = map[string]interface{}{
+			"Success":           true,
+			"Status":            201,
+			"Message":           "Creado correctamente",
+			"Datos creados con": v,
 		}
 	} else {
 		c.Data["json"] = err.Error()
 	}
+
 	c.ServeJSON()
 }
 

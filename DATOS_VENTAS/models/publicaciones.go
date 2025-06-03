@@ -22,7 +22,8 @@ type Publicaciones struct {
 	Activo        bool      `orm:"column(activo)"`
 	FCreacion     time.Time `orm:"column(f_creacion);type(timestamp with time zone);auto_now_add"`
 	FModificacion time.Time `orm:"column(f_modificacion);type(timestamp with time zone);auto_now"`
-	Imagenes      string    `orm:"column(imagenes);type(text)"`
+	ImagenesDB string   `orm:"column(imagenes);type(text)" json:"-"`     // lo que se guarda
+	Imagenes   []string `orm:"-" json:"imagenes"` // para el unmarshaling
 }
 
 func (t *Publicaciones) TableName() string {
