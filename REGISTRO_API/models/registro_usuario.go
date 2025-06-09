@@ -1,8 +1,10 @@
 package models
 
 import (
+	"encoding/base64"
 	"errors"
 	"fmt"
+	"os"
 	"reflect"
 	"strings"
 	"time"
@@ -24,6 +26,7 @@ type RegistroUsuario struct {
 	Activo            bool           `orm:"column(activo)"`
 	FCreacion         time.Time      `orm:"column(f_creacion);type(timestamp with time zone);auto_now_add"`
 	FModificacion     time.Time      `orm:"column(f_modificacion);type(timestamp with time zone);auto_now"`
+	FotoPerfil        string         `orm:"column(foto_perfil);type(text),null"`
 }
 
 func (t *RegistroUsuario) TableName() string {
@@ -48,7 +51,7 @@ func AddRegistroUsuario(m *RegistroUsuario) (id int64, err error) {
 func GetRegistroUsuarioById(id int) (v *RegistroUsuario, err error) {
 	o := orm.NewOrm()
 	v = &RegistroUsuario{Id: id}
-	if err = o.Read(v); err == nil {
+	if err = o.QueryTable(new(RegistroUsuario)).RelatedSel().Filter("Id", id).One(v); err == nil {
 		return v, nil
 	}
 	return nil, err
@@ -137,13 +140,40 @@ func GetAllRegistroUsuario(query map[string]string, fields []string, sortby []st
 func UpdateRegistroUsuarioById(m *RegistroUsuario) (err error) {
 	o := orm.NewOrm()
 	v := RegistroUsuario{Id: m.Id}
-	// ascertain id exists in the database
+
 	if err = o.Read(&v); err == nil {
+		// Si viene una imagen nueva en base64
+		if m.FotoPerfil != "" && strings.HasPrefix(m.FotoPerfil, "data:image") {
+			// Separar encabezado de los datos
+			dataIndex := strings.Index(m.FotoPerfil, ",")
+			if dataIndex >= 0 {
+				imageData := m.FotoPerfil[dataIndex+1:]
+
+				// Decodificar base64
+				decoded, decodeErr := base64.StdEncoding.DecodeString(imageData)
+				if decodeErr != nil {
+					return fmt.Errorf("Error al decodificar imagen: %v", decodeErr)
+				}
+
+				// Guardar imagen en disco (puedes usar el ID o correo como nombre)
+				imagePath := fmt.Sprintf("static/uploads/user_%d.png", m.Id)
+				writeErr := os.WriteFile(imagePath, decoded, 0644)
+				if writeErr != nil {
+					return fmt.Errorf("Error al guardar imagen: %v", writeErr)
+				}
+
+				// Guardar la ruta en la base de datos (opcional)
+				m.FotoPerfil = imagePath
+			}
+		}
+
+		// Actualizar los datos
 		var num int64
 		if num, err = o.Update(m); err == nil {
-			fmt.Println("Number of records updated in database:", num)
+			fmt.Println("✔️ Número de registros actualizados en la base de datos:", num)
 		}
 	}
+
 	return
 }
 
