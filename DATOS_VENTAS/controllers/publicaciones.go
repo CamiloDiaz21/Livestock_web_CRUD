@@ -76,15 +76,34 @@ func (c *PublicacionesController) Post() {
 // @Failure 403 :id is empty
 // @router /:id [get]
 func (c *PublicacionesController) GetOne() {
-	idStr := c.Ctx.Input.Param(":id")
-	id, _ := strconv.Atoi(idStr)
-	v, err := models.GetPublicacionesById(id)
-	if err != nil {
-		c.Data["json"] = err.Error()
-	} else {
-		c.Data["json"] = map[string]interface{}{"Success": true, "Status": 200, "Message": "Consulta correctamente", "Consulta de id": v}
-	}
-	c.ServeJSON()
+    userIdStr := c.Ctx.Input.Param(":id")
+    userId, err := strconv.Atoi(userIdStr)
+    if err != nil {
+        c.Data["json"] = map[string]interface{}{
+            "Success": false,
+            "Status":  400,
+            "Message": "ID de usuario inválido",
+        }
+        c.ServeJSON()
+        return
+    }
+
+    publicaciones, err := models.GetPublicacionesByIdUsuarioVendedor(userId)
+    if err != nil {
+        c.Data["json"] = map[string]interface{}{
+            "Success": false,
+            "Status":  404,
+            "Message": "No se encontraron publicaciones para el usuario",
+        }
+    } else {
+        c.Data["json"] = map[string]interface{}{
+            "Success":      true,
+            "Status":       200,
+            "Message":      "Consulta correctamente",
+            "Publicaciones": publicaciones,
+        }
+    }
+    c.ServeJSON()
 }
 
 // GetAll ...

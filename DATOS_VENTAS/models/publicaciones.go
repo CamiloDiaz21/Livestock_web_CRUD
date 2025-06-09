@@ -1,6 +1,7 @@
 package models
 
 import (
+	"encoding/json"
 	"errors"
 	"fmt"
 	"reflect"
@@ -11,19 +12,19 @@ import (
 )
 
 type Publicaciones struct {
-	Id            int       `orm:"column(id);pk;auto"`
-	IdUsuarioVendedor     int       `orm:"column(id_usuario_vendedor);null"`
-	Descripcion   string    `orm:"column(descripcion)"`
-	DatosVendedor string    `orm:"column(datos_vendedor)"`
-	Ubicacion     string    `orm:"column(ubicacion)"`
-	Precio        float64    `orm:"column(precio)"`
-	RazaGanado    string    `orm:"column(raza_ganado);null"`
-	IdTipoVenta  *TipoVenta `orm:"column(id_tipo_venta);rel(fk)"`
-	Activo        bool      `orm:"column(activo)"`
-	FCreacion     time.Time `orm:"column(f_creacion);type(timestamp with time zone);auto_now_add"`
-	FModificacion time.Time `orm:"column(f_modificacion);type(timestamp with time zone);auto_now"`
-	ImagenesDB string   `orm:"column(imagenes);type(text)" json:"-"`     // lo que se guarda
-	Imagenes   []string `orm:"-" json:"imagenes"` // para el unmarshaling
+	Id                int        `orm:"column(id);pk;auto"`
+	IdUsuarioVendedor int        `orm:"column(id_usuario_vendedor);null"`
+	Descripcion       string     `orm:"column(descripcion)"`
+	DatosVendedor     string     `orm:"column(datos_vendedor)"`
+	Ubicacion         string     `orm:"column(ubicacion)"`
+	Precio            float64    `orm:"column(precio)"`
+	RazaGanado        string     `orm:"column(raza_ganado);null"`
+	IdTipoVenta       *TipoVenta `orm:"column(id_tipo_venta);rel(fk)"`
+	Activo            bool       `orm:"column(activo)"`
+	FCreacion         time.Time  `orm:"column(f_creacion);type(timestamp with time zone);auto_now_add"`
+	FModificacion     time.Time  `orm:"column(f_modificacion);type(timestamp with time zone);auto_now"`
+	ImagenesDB        string     `orm:"column(imagenes);type(text)" json:"-"` // lo que se guarda
+	Imagenes          []string   `orm:"-" json:"imagenes"`                    // para el unmarshaling
 }
 
 func (t *Publicaciones) TableName() string {
@@ -48,10 +49,34 @@ func AddPublicaciones(m *Publicaciones) (id int64, err error) {
 func GetPublicacionesById(id int) (v *Publicaciones, err error) {
 	o := orm.NewOrm()
 	v = &Publicaciones{Id: id}
-	if err = o.Read(v); err == nil {
+	if err = o.QueryTable(new(Publicaciones)).RelatedSel().Filter("Id", id).One(v); err == nil {
 		return v, nil
 	}
 	return nil, err
+}
+
+func GetPublicacionesByIdUsuarioVendedor(idUsuarioVendedor int) ([]Publicaciones, error) {
+	o := orm.NewOrm()
+	var publicaciones []Publicaciones
+
+	_, err := o.QueryTable(new(Publicaciones)).
+		Filter("IdUsuarioVendedor", idUsuarioVendedor).
+		All(&publicaciones)
+	if err != nil {
+		return nil, err
+	}
+
+	// Mapear ImagenesDB -> Imagenes (manual)
+	for i := range publicaciones {
+		if publicaciones[i].ImagenesDB != "" {
+			var imagenes []string
+			if err := json.Unmarshal([]byte(publicaciones[i].ImagenesDB), &imagenes); err == nil {
+				publicaciones[i].Imagenes = imagenes
+			}
+		}
+	}
+
+	return publicaciones, nil
 }
 
 // GetAllPublicaciones retrieves all Publicaciones matches certain condition. Returns empty list if
